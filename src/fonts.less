@@ -1,0 +1,48 @@
+/* Default Settings */
+@drop-font--body-font-size: 1em;
+@drop-font--body-font-family: Helvetica, Arial, sans-serif;
+@drop-font--head-font-size: 3em;
+@drop-font--head-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/**
+ * Sets the line-height based on the @size you provide
+ *
+ * Line height is the smallest multiple of the baseline grid which contains your font size.
+ */
+.line-height (@size: 1em) {
+	// Round the font size up to the nearest multiple of the baseline height
+	// This uses floor and +1 to make so that 1/1 rounds up to 2 baselines
+	@line: (floor(@size / @drop-vert--baseline-height + 1) * @drop-vert--baseline-height);
+	// Divide by the @font-size because 1em line-height = @font-size
+	line-height: round((@line / @size), @drop--round-digits);
+}
+.font-size (@size: 1em) {
+	.line-height(@size);
+	font-size: round(@size, @drop--round-digits);
+}
+
+/**
+ * Body font
+ */
+body {
+	.font-size(@drop-font--body-font-size);
+	font-family: @body--font-family;
+}
+
+/**
+ * Header fonts
+ */
+.head (@level: 1) {
+	@size-step: ((@drop-font--head-font-size - @drop-font--body-font-size) / 7);
+	@size: (@drop-font--head-font-size - (@level * @size-step));
+	.font-size(@size);
+	.zero;
+	font-family: @drop-font--head-font-family;
+}
+
+h1 { .head(1); }
+h2 { .head(2); }
+h3 { .head(3); }
+h4 { .head(4); }
+h5 { .head(5); }
+h6 { .head(6); }

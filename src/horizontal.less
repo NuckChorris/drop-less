@@ -1,0 +1,14 @@
+/* Default Settings */
+@drop-horz--column-count: 12;
+@drop-horz--column-gutter: 1%;
+
+/**
+ * Sets the width and left/right margins according to the columns
+ *
+ * We assume that the gutters are in-between columns, by doing 50% on either margin.
+ */
+.columns (@cols: 1, @margins: @drop-horz--column-gutter) {
+	width: round(((@cols / @drop-horz--column-count) * 100% - @margins), @drop--round);
+	margin-left: (@margins / 2);
+	margin-right: (@margins / 2);
+}

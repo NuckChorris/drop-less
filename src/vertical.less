@@ -1,0 +1,20 @@
+/* Default Settings */
+@drop-vert--baseline-height: 1.2em;
+
+/**
+ * Sets the height of a block-level element latched to nearest baseline
+ */
+.baselines (@rows) {
+	height: (@drop-vert--baseline-height * @rows);
+}
+.baselines (@rows, @margin) {
+	.baselines(@rows);
+	margin-top: (@drop-vert--baseline-height * @margin);
+	margin-bottom: (@drop-vert--baseline-height * @margin);
+}
+.baselines (@rows, @margin, @padding) {
+	.baselines(@rows, @margin);
+	padding-top: (@drop-vert--baseline-height * @padding);
+	padding-bottom: (@drop-vert--baseline-height * @padding);
+}
+
