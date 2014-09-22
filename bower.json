@@ -1,0 +1,32 @@
+{
+  "name": "drop-less",
+  "version": "0.1.0",
+  "homepage": "https://github.com/NuckChorris/drop-less",
+  "authors": [
+    "Peter Lejeck <bower@plejeck.com>"
+  ],
+  "description": "Drop is a delightful little CSS framework made for the modern web. Batteries not included.",
+  "main": "drop.less",
+  "keywords": [
+    "LESS",
+    "CSS",
+    "lightweight",
+    "aerogel",
+    "framework",
+    "columns",
+    "baseline",
+    "ems",
+    "elastic",
+    "responsive",
+    "mixins",
+    "grid",
+    "semantic",
+    "flexbox"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
