@@ -4,7 +4,7 @@
  * We assume that the gutters are in-between columns, by doing 50% on either margin.
  */
 .columns (@cols: 1, @margins: @drop-horz--column-gutter) {
-	width: round(((@cols / @drop-horz--column-count) * 100% - @margins), @drop--round-digits);
+	width: round(((@cols / @drop-horz--column-count) * 100% - @margins), 3);
 	margin-left: (@margins / 2);
 	margin-right: (@margins / 2);
 }

@@ -8,11 +8,11 @@
 	// This uses floor and +1 to make so that 1/1 rounds up to 2 baselines
 	@line: (floor(@size / @drop-vert--baseline-height + 1) * @drop-vert--baseline-height);
 	// Divide by the @font-size because 1em line-height = @font-size
-	line-height: round((@line / @size), @drop--round-digits);
+	line-height: round((@line / @size), 3);
 }
 .font-size (@size: 1em) {
 	.line-height(@size);
-	font-size: round(@size, @drop--round-digits);
+	font-size: round(@size, 3);
 }
 
 /**
