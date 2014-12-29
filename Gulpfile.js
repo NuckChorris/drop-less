@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var zip = require('gulp-zip');
+var concat = require('gulp-concat');
 var gutil = require('gulp-util');
 
 var pkg = require('./package.json');
@@ -26,10 +27,17 @@ gulp.task('checkpkg', function () {
 	}
 });
 
-gulp.task('dist', function () {
+gulp.task('dist-zip', function () {
 	return gulp.src('src/*')
 		.pipe(zip(pkg.name + '_' + pkg.version + '.zip'))
 		.pipe(gulp.dest('dist'));
 });
 
+gulp.task('dist-concat', function () {
+	return gulp.src(['src/settings.less', 'src/*'])
+		.pipe(concat(pkg.name + '_' + pkg.version + '.less'))
+		.pipe(gulp.dest('dist'));
+});
+
+gulp.task('dist', ['dist-zip', 'dist-concat']);
 gulp.task('default', ['checkpkg', 'dist']);
